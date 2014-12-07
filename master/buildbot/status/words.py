@@ -660,12 +660,11 @@ class Contact(base.StatusReceiver):
                 properties.setProperty(pname, pvalue, "Force Build chat")
 
         reason = u"forced: by %s: %s" % (self.describeUser(), reason)
-        d = self.master.data.updates.addBuildset(builderNames=[builderName],
+        d = self.master.data.updates.addBuildset(False,
                                                  scheduler=u"status.words",  # For now, we just use this as the id.
                                                  sourcestamps=[{'branch': branch, 'revision': revision}],
                                                  reason=reason,
-                                                 properties=properties.asDict(),
-                                                 waited_for=False)
+                                                 properties=properties.asDict())
 
         def subscribe(xxx_todo_changeme):
             (bsid, brids) = xxx_todo_changeme

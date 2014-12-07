@@ -28,7 +28,7 @@ from twisted.internet import task
 from twisted.trial import unittest
 
 
-class TestContactChannel(unittest.TestCase):
+class TestContact(unittest.TestCase):
 
     BUILDER_NAMES = [u'builder1', u'builder2']
     BUILDER_IDS = [23, 45]
